@@ -12,7 +12,6 @@ module.exports = function(environment) {
       apiKey: "AIzaSyBv30YYaTBqWCoSHLv0W4priCcp9dDj3yo",
       authDomain: "library-app-9d089.firebaseapp.com",
       databaseURL: "https://library-app-9d089.firebaseio.com",
-      projectId: "library-app-9d089",
       storageBucket: "library-app-9d089.appspot.com",
       messagingSenderId: "322523485964"
     },
