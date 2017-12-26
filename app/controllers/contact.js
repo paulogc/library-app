@@ -5,17 +5,23 @@ import { emailRgx } from './index';
 
 
 export default Controller.extend({
-  emailAddress: '',
+
+  email: '',
   message: '',
 
-  isValid: Ember.computed.match('emailAddress', emailRgx),
+  isValid: Ember.computed.match('email', emailRgx),
   isDisabled: Ember.computed.not('isValid') && Ember.computed.empty('message'),
 
   actions: {
     sendMessage() {
-      alert('Sending your message');
+      this.store.createRecord(
+        'contact',
+        { email: this.get('email'),message: this.get('message')},
+      );
+
       this.set('responseMessage', 'Thank you for your message,we are going to send feedback as soon as possible');
-      this.set('emailAddress', '');
-    }
+        this.set('email', '');
+        this.set('message', '');
+    }    
   }
 });
