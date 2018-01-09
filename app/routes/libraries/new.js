@@ -9,7 +9,13 @@ export default Ember.Route.extend({
   actions: {
 
     saveLibrary(newLibrary) {
-      newLibrary.save().then(() => this.transitionTo('libraries'));
+      if (newLibrary.get('name') && newLibrary.get('address') && newLibrary.get('phone')) {
+        this.controller.set('emptyField', false);
+        newLibrary.save().then(() => this.transitionTo('libraries'));
+      } else {
+        this.controller.set('emptyField', true);
+        this.controller.set('alertMessage', 'Please fill al the fields to save');
+      }
     },
 
     willTransition() {
