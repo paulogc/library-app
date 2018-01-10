@@ -11,6 +11,7 @@ export default Ember.Route.extend({
     saveLibrary(newLibrary) {
       if (newLibrary.get('name') && newLibrary.get('address') && newLibrary.get('phone')) {
         this.controller.set('emptyField', false);
+        this.controller.set('alertMessage', '');
         newLibrary.save().then(() => this.transitionTo('libraries'));
       } else {
         this.controller.set('emptyField', true);

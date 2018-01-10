@@ -14,7 +14,7 @@
     </div>
   </div>
   {{#if responseMessage}}
-     <div class="alert alert-success">{{responseMessage}}</div>
+     <div class="alert alert-{{if emailExistes "warning" "success"}}">{{responseMessage}}</div>
    {{/if}}
 
    <br/><br/>
